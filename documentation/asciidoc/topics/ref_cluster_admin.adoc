@@ -1,0 +1,21 @@
+Log into your {k8s} cluster as an administrator.
+
+ifndef::productized[]
+[source,options="nowrap"]
+----
+$ oc cluster up
+$ oc login -u system:admin
+----
+endif::productized[]
+
+ifdef::productized[]
+[source,options="nowrap"]
+----
+$ oc login -u system:admin
+----
+endif::productized[]
+
+[NOTE]
+====
+{okd} 3.11 is the minimum version for the {ispn_operator}.
+====

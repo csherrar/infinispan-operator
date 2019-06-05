@@ -1,0 +1,15 @@
+// Include attributes
+include::attributes/product-attributes.adoc[]
+include::title-attributes.adoc[]
+
+// Name and ID of the title
+[id="{ProjectNameID}-{context}"]
+= {ProjectName}
+
+Guide intro text
+
+include::modules/con_infinispan_operator.adoc[]
+
+include::modules/cluster_management.adoc[]
+
+include::modules/manual_operator_deployment.adoc[]

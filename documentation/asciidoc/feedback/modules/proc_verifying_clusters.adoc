@@ -1,0 +1,44 @@
+[id='verifying_clusters-{context}']
+=== Verifying {brandname} Clusters
+
+Intro text
+
+.Procedure
+
+ifndef::productized[]
+. Check that the {brandname} nodes have received a clustered view, for example:
++
+[source,options="nowrap",subs="attributes"]
+----
+$ oc logs example-infinispan-0 | grep ISPN000094
+
+INFO  [org.infinispan.CLUSTER] (MSC service thread 1-1) \
+ISPN000094: Received new cluster view for channel cluster: \
+[example-infinispan-0|0] (1) [example-infinispan-0]
+----
+endif::productized[]
+ifdef::productized[]
+. Verify that the {brandname} nodes can discover each other, for example:
++
+[source,options="nowrap",subs="attributes"]
+----
+$ oc logs example-rhdg-0 | grep KUBE
+
+INFO Configuring JGroups discovery protocol to openshift.KUBE_PING
+INFO  [org.jgroups.protocols.openshift.KUBE_PING] (MSC service thread 1-2) namespace [dg-op1] set; clustering enabled
+----
+
+. Verify that the nodes have received a clustered view, for example:
++
+[source,options="nowrap",subs="attributes"]
+----
+$ oc logs example-rhdg-0 | grep ISPN000094
+
+INFO  [org.infinispan.CLUSTER] (MSC service thread 1-2) \
+ISPN000094: Received new cluster view for channel cluster: \
+[example-rhdg-0|0] (1) [example-rhdg-0] \
+INFO  [org.infinispan.CLUSTER] (jgroups-3,example-rhdg-0) \
+ISPN000094: Received new cluster view for channel cluster: \
+[example-rhdg-0|1] (2) [example-rhdg-0, example-rhdg-1]
+----
+endif::productized[]

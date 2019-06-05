@@ -1,0 +1,16 @@
+[id='cluster_management']
+== {brandname} Cluster Management
+:context: cluster_management
+
+You can create {brandname} clusters from custom resource definitions.
+
+.Prerequisites
+* The {ispn_operator} is installed. For more information, see link:https://www.operatorhub.io/[OperatorHub.io] and link:#manual_operator_deployment[Manual operator deployment].
+
+include::modules/proc_creating_minimal_clusters.adoc[]
+
+include::modules/proc_verifying_clusters.adoc[]
+
+// Restore the parent context.
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

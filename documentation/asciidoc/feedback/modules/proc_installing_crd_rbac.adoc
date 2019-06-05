@@ -1,0 +1,19 @@
+[id='installing_crd_rbac-{context}']
+=== Installing {ispn_operator} Resources
+
+Intro text
+
+.Procedure
+. Apply the custom resource definition for the {ispn_operator}:
++
+[source,options="nowrap",subs="attributes"]
+----
+$ oc apply -f {operator_raw}deploy/crd.yaml
+----
++
+. Install RBAC resources for the {ispn_operator}:
++
+[source,options="nowrap",subs="attributes"]
+----
+$ oc apply -f {operator_raw}deploy/rbac.yaml
+----

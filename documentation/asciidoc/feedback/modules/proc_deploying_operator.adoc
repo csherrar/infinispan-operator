@@ -1,0 +1,12 @@
+[id='installing_operator-{context}']
+=== Deploying the {ispn_operator}
+
+Intro text
+
+.Procedure
+. Apply `dg_operator.yaml` to deploy the {ispn_operator} to {k8s}:
++
+[source,options="nowrap",subs="attributes"]
+----
+$ oc apply -f {operator_raw}deploy/dg_operator.yaml
+----

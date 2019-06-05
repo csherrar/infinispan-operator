@@ -1,0 +1,46 @@
+[id='creating_minimal_clusters-{context}']
+=== Creating Minimal {brandname} Clusters
+
+Intro text
+
+.Procedure
+
+. Create a {brandname} cluster with two nodes.
++
+ifndef::productized[]
+[source,options="nowrap",subs="attributes"]
+----
+$ oc apply -f {operator_raw}deploy/cr/cr_minimal.yaml
+----
+endif::productized[]
+ifdef::productized[]
+[source,options="nowrap",subs="attributes"]
+----
+$ oc apply -f {operator_raw}deploy/cr/cr_dg_minimal.yaml
+----
+endif::productized[]
++
+. Verify that the {ispn_operator} creates the pods.
++
+ifndef::productized[]
+[source,options="nowrap"]
+----
+$ oc get pods -w
+
+NAME                          READY     STATUS    RESTARTS   AGE
+infinispan-operator-<id>      1/1       Running   0          3m
+example-infinispan-0          1/1       Running   0          8s
+example-infinispan-1          1/1       Running   0          8s
+----
+endif::productized[]
+ifdef::productized[]
+[source,options="nowrap"]
+----
+$ oc get pods -w
+
+NAME                          READY     STATUS    RESTARTS   AGE
+infinispan-operator-<id>      1/1       Running   0          25s
+example-rhdg-0                1/1       Running   0          2m
+example-rhdg-1                1/1       Running   0          15s
+----
+endif::productized[]
